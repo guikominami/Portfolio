@@ -9,7 +9,7 @@ const Btn = styled.button`
   border: none;
 
   font-size: ${props => props.theme.fontsm};
-  padding: 0.9rem 2.3rem;
+  padding: 0.8rem 2rem;
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.2s ease;

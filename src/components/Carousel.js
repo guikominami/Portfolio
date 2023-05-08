@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
 import "swiper/css";
-import "swiper/css/effect-creative";
+import "swiper/css/effect-cards";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
@@ -19,6 +18,7 @@ import img7 from '../assets/Nfts/bighead-6.svg'
 import img8 from '../assets/Nfts/bighead-7.svg'
 import img9 from '../assets/Nfts/bighead-8.svg'
 import img10 from '../assets/Nfts/bighead-9.svg'
+import Arrow from '../assets/Arrow.svg'
 
 const Container = styled.div`
   width: 25vw;
@@ -37,6 +37,35 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
   }
+
+  .swiper-button-prev{
+    color: ${props => props.theme.text};
+    left: 0;
+    width: 4rem;
+    transform: rotate(180deg);
+    background-image: url(${Arrow});
+    background-position: center;
+    background-size: cover;
+    top: 60%;
+    
+    &:after{
+      display: none;
+    }
+  }
+
+  .swiper-button-next{
+    color: ${props => props.theme.text};
+    right: 0;
+    width: 4rem;
+    background-image: url(${Arrow});
+    background-position: center;
+    background-size: cover;
+    top: 60%;
+
+    &:after{
+      display: none;
+    }    
+  }  
 `
 
 const Carousel = () => {
@@ -50,10 +79,15 @@ const Carousel = () => {
       pagination={{
         type: "fraction"
       }}
-        effect={"cards"}
-        grabCursor={true}
-        modules={[EffectCards, Pagination, Navigation, Autoplay]}
-        className="mySwiper"
+      scrollbar={{
+        draggable:true
+      }}
+      modules={[EffectCards, Pagination, Navigation, Autoplay]}
+      navigation={true}      
+      effect={"cards"}
+      grabCursor={true}
+
+      className="mySwiper"
       >
         <SwiperSlide><img src={img1} alt="The Weirdos" /></SwiperSlide>
         <SwiperSlide><img src={img2} alt="The Weirdos" /></SwiperSlide>
